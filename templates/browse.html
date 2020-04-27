@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+
+ <img class="materialboxed" width="650" src="static/images/frontimage.jpeg.jpg">
+     <p>Welcome to Recipes at home!
+We pride ourselves on providing the healthiest and quickest recipes to make at home during these troubling times!
+
+Feel free to browse our recipe's or simply add yours to our collection below!
+	</p>
+
+<a href="browse.html" class="waves-effect waves-light btn">Browse</a>
+
+<a href="addrecipe.html" class="waves-effect waves-light btn">Add a recipe</a>
+
+    {% for recipe in recipes %}
+        {{recipe.Recipe}}<br>
+        {{recipe.Cuisine}}<br>
+        {{recipe.Ingredients_bases}}<br>
+        {{recipe.Ingredients_sauces}}<br>
+        {{recipe.Ingrediets_spices}}<br>
+        {{recipe.Ingredients_vegetables}}<br>
+        {{recipe.Ingredients_meats}}<br>
+        {{recipe.Instructions}}<br>
+
+        
+
+    {% endfor %}
+
+    {% endblock %}

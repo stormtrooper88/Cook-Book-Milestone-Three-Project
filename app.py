@@ -16,6 +16,13 @@ def hello():
     recipes = mongo.db.recipes.find()
     return render_template("base.html", recipes=recipes)
 
+@app.route('/browse')
+def browse():
+    return render_template("browse.html", page_title="Browse")
+
+@app.route('/addrecipe')
+def addrecipe():
+    return render_template("addrecipe.html", page_title="Add A Recipe")
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP', '0.0.0.0'),
