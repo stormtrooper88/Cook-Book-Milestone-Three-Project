@@ -11,10 +11,9 @@ app.config["MONGO_URI"] = 'mongodb+srv://root:Rundle18@myfirstcluster-6cjbt.mong
 mongo = PyMongo(app)
 
 @app.route('/')
-@app.route('/recipes')
-def hello():
-    recipes = mongo.db.recipes.find()
-    return render_template("base.html", recipes=recipes)
+@app.route('/recipe')
+def recipe():
+    return render_template("index.html", page_title="Home Page")
 
 @app.route('/browse')
 def browse():
@@ -22,7 +21,12 @@ def browse():
 
 @app.route('/addrecipe')
 def addrecipe():
-    return render_template("addrecipe.html", page_title="Add A Recipe")
+    bases = mongo.db.bases.find()
+    meats = mongo.db.meats.find()
+    sauces = mongo.db.sauces.find()
+    spices = mongo.db.spices.find()
+    vegetables = mongo.db.vegetables.find()
+    return render_template("addrecipe.html", page_title="Add A Recipe", bases=mongo.db.bases.find(), meats=mongo.db.meats.find(), sauces=mongo.db.sauces.find(), spices=mongo.db.spices.find(), vegetables=mongo.db.vegetables.find())
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP', '0.0.0.0'),

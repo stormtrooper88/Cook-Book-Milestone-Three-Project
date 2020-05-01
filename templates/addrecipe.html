@@ -1,29 +1,74 @@
-{% extends 'base.html' %}
-{% block content %}
+{% extends 'base.html' %} {% block content %}
 
- <img class="materialboxed" width="650" src="static/images/frontimage.jpeg.jpg">
-     <p>Welcome to Recipes at home!
-We pride ourselves on providing the healthiest and quickest recipes to make at home during these troubling times!
+<h2>Add your recipe below!</h2>
 
-Feel free to browse our recipe's or simply add yours to our collection below!
-	</p>
+  <div class="row">
+    <form class="col s12">
+      <div class="row">
+        <div class="input-field col s6">
+          <input placeholder="Name your recipe here!" id="recipes_Recipe" type="text" class="validate">
+          <label for="name_of_recipe">Name of your recipe</label>
+        </div>
+        <div class="input-field col s6">
+          <input id="recipes_Cuisine" type="text" class="validate">
+          <label for="cuisine">What cuisine is your recipe from</label>
+        </div>
+      </div>
 
-<a href="browse.html" class="waves-effect waves-light btn">Browse</a>
+  <div action="" method="POST" class="input-field col s12">
+    <select multiple>
+    {% for base in bases %}
+      <option value="{{base.bases}}">{{base.bases}}</option>
+            {% endfor %}
+    </select>
+    <label>Materialize Multiple Select</label>
+  </div>
 
-<a href="addrecipe.html" class="waves-effect waves-light btn">Add a recipe</a>
+    <div action="" method="POST" class="input-field col s12">
+    <select multiple>
+    {% for meat in meats %}
+      <option value="{{meat.meats}}">{{meat.meats}}</option>
+      {% endfor %}
+    </select>
+    <label>Materialize Multiple Select</label>
+  </div>
 
-    {% for recipe in recipes %}
-        {{recipe.Recipe}}<br>
-        {{recipe.Cuisine}}<br>
-        {{recipe.Ingredients_bases}}<br>
-        {{recipe.Ingredients_sauces}}<br>
-        {{recipe.Ingrediets_spices}}<br>
-        {{recipe.Ingredients_vegetables}}<br>
-        {{recipe.Ingredients_meats}}<br>
-        {{recipe.Instructions}}<br>
+    <div action="" method="POST" class="input-field col s12">
+    <select multiple>
+    {% for sauce in sauces %}
+      <option value="{{sauce.sauces}}">{{sauce.sauces}}</option>
+            {% endfor %}
+    </select>
+    <label>Materialize Multiple Select</label>
+  </div>
 
-        
+    <div action="" method="POST" class="input-field col s12">
+    <select multiple>
+    {% for spice in spices %}
+      <option value="{{spice.spices}}">{{spice.spices}}</option>
+            {% endfor %}
+    </select>
+    <label>Materialize Multiple Select</label>
+  </div>
 
-    {% endfor %}
+    <div action="" method="POST" class="input-field col s12">
+    <select multiple>
+    {% for vegetable in vegetables %}
+      <option value="{{vegetable.vegetables}}">{{vegetable.vegetables}}</option>
+            {% endfor %}
+    </select>
+    <label>Materialize Multiple Select</label>
+  </div>
 
-    {% endblock %}
+   <div class="row">
+    <form class="col s12">
+      <div class="row">
+        <div class="input-field col s12">
+          <textarea id="recipes_Instructions" class="materialize-textarea"></textarea>
+          <label for="textarea1">Please leave your instructions here</label>
+        </div>
+      </div>
+    </form>
+  </div>
+
+{% endblock %}
