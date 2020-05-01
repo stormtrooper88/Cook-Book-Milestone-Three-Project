@@ -6,12 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+        <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" type="text/css" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 <body>
 <header>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Navbar</a>
+  <a class="navbar-brand" href="#"></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -19,19 +20,19 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="{{url_for('recipe')}}">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="{{url_for('recipe')}}">Home <span class="sr-only"></span></a>
       </li>
       </div>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="{{url_for('browse')}}">Browse <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="{{url_for('browse')}}">Browse <span class="sr-only"></span></a>
       </li>
       </div>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="{{url_for('addrecipe')}}">Add a recipe <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="{{url_for('addrecipe')}}">Add a recipe <span class="sr-only"></span></a>
       </li>
       </div>
       </nav>
@@ -71,7 +72,6 @@ Feel free to browse our recipe's or simply add yours to our collection below!
     {% endfor %}
         {% for vegetable in vegetables %}
     {% endfor %}
-
 
 {% endblock %}
 </body>
