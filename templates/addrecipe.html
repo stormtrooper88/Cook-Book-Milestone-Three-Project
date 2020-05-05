@@ -15,16 +15,16 @@
         </div>
       </div>
 
-  <div action="" method="POST" class="input-field col s12">
+  <div action="{{ url_for('addrecipe_add') }}" method="POST" class="input-field col s6">
     <select multiple>
     {% for base in bases %}
       <option value="{{base.bases}}">{{base.bases}}</option>
-            {% endfor %}
-    </select>
-    <label>Materialize Multiple Select</label>
-  </div>
 
-    <div action="" method="POST" class="input-field col s12">
+    </select>
+    <label value="{{base.bases}}">{{base.bases}}</label>
+  </div>
+            {% endfor %}
+    <div action="{{ url_for('addrecipe_add') }}" method="POST" class="input-field col s6">
     <select multiple>
     {% for meat in meats %}
       <option value="{{meat.meats}}">{{meat.meats}}</option>
@@ -33,7 +33,7 @@
     <label>Materialize Multiple Select</label>
   </div>
 
-    <div action="" method="POST" class="input-field col s12">
+    <div action="{{ url_for('addrecipe_add') }}" method="POST" class="input-field col s6">
     <select multiple>
     {% for sauce in sauces %}
       <option value="{{sauce.sauces}}">{{sauce.sauces}}</option>
@@ -42,7 +42,7 @@
     <label>Materialize Multiple Select</label>
   </div>
 
-    <div action="" method="POST" class="input-field col s12">
+    <div action="{{ url_for('addrecipe_add') }}" method="POST" class="input-field col s6">
     <select multiple>
     {% for spice in spices %}
       <option value="{{spice.spices}}">{{spice.spices}}</option>
@@ -51,7 +51,7 @@
     <label>Materialize Multiple Select</label>
   </div>
 
-    <div action="" method="POST" class="input-field col s12">
+    <div action="{{ url_for('addrecipe_add') }}" method="POST" class="input-field col s6">
     <select multiple>
     {% for vegetable in vegetables %}
       <option value="{{vegetable.vegetables}}">{{vegetable.vegetables}}</option>
@@ -68,7 +68,14 @@
           <label for="textarea1">Please leave your instructions here</label>
         </div>
       </div>
+
+   <div class="row">
+      <button class="btn waves-effect waves-light" type="submit" name="action">Submit your recipe
+    <i class="material-icons right">addrecipe_add</i>
+  </button>
+   </div>
     </form>
+
   </div>
 
 {% endblock %}

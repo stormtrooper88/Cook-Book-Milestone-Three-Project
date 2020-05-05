@@ -28,6 +28,15 @@ def addrecipe():
     vegetables = mongo.db.vegetables.find()
     return render_template("addrecipe.html", page_title="Add A Recipe", bases=mongo.db.bases.find(), meats=mongo.db.meats.find(), sauces=mongo.db.sauces.find(), spices=mongo.db.spices.find(), vegetables=mongo.db.vegetables.find())
 
+@app.route('/addrecipe_add', methods=['POST'])
+def addrecipe_add():
+    recipes = mongo.db.Recipe
+    Recipe.insert_one(request.form.to.dict())
+    return redirect(url_for('recipe'))
+
+
+
+
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP', '0.0.0.0'),
             port=int(os.environ.get('PORT', '5000')),

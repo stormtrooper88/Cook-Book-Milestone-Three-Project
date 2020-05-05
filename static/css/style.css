@@ -1,11 +1,15 @@
-.materialboxed {
-    display: block;
-    margin: 0 auto;
-}
-.body {
+.body, html {
+    height: 100%;
     margin: 0;
     padding: 0;
     text-align: center;
+}
+.bg {
+    background-image: src="static/images/frontimage.jpeg.jpg";
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 .header {
     height: 100vh;
