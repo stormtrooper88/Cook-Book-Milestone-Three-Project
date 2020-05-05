@@ -1,12 +1,12 @@
 {% extends 'base.html' %} {% block content %}
 
-<h2>Add your recipe below!</h2>
+<h3>Add your recipe below!</h3>
 
   <div class="row">
     <form class="col s12">
       <div class="row">
         <div class="input-field col s6">
-          <input placeholder="Name your recipe here!" id="recipes_Recipe" type="text" class="validate">
+          <input placeholder="Name your recipe here" id="recipes_Recipe" type="text" class="validate">
           <label for="name_of_recipe">Name of your recipe</label>
         </div>
         <div class="input-field col s6">
@@ -18,46 +18,46 @@
   <div action="{{ url_for('addrecipe_add') }}" method="POST" class="input-field col s6">
     <select multiple>
     {% for base in bases %}
-      <option value="{{base.bases}}">{{base.bases}}</option>
-
+      <option value="{{base.base}}">{{base.base}}</option>
+                 {% endfor %}
     </select>
-    <label value="{{base.bases}}">{{base.bases}}</label>
+    <label>Select your base(s)</label>
   </div>
-            {% endfor %}
+ 
     <div action="{{ url_for('addrecipe_add') }}" method="POST" class="input-field col s6">
     <select multiple>
     {% for meat in meats %}
-      <option value="{{meat.meats}}">{{meat.meats}}</option>
+      <option value="{{meat.meat}}">{{meat.meat}}</option>
       {% endfor %}
     </select>
-    <label>Materialize Multiple Select</label>
+    <label>Select your meat</label>
   </div>
 
     <div action="{{ url_for('addrecipe_add') }}" method="POST" class="input-field col s6">
     <select multiple>
     {% for sauce in sauces %}
-      <option value="{{sauce.sauces}}">{{sauce.sauces}}</option>
+      <option value="{{sauce.sauce}}">{{sauce.sauce}}</option>
             {% endfor %}
     </select>
-    <label>Materialize Multiple Select</label>
+    <label>Select your sauce(s)</label>
   </div>
 
     <div action="{{ url_for('addrecipe_add') }}" method="POST" class="input-field col s6">
     <select multiple>
     {% for spice in spices %}
-      <option value="{{spice.spices}}">{{spice.spices}}</option>
+      <option value="{{spice.spice}}">{{spice.spice}}</option>
             {% endfor %}
     </select>
-    <label>Materialize Multiple Select</label>
+    <label>Select your spice(s)</label>
   </div>
 
     <div action="{{ url_for('addrecipe_add') }}" method="POST" class="input-field col s6">
     <select multiple>
     {% for vegetable in vegetables %}
-      <option value="{{vegetable.vegetables}}">{{vegetable.vegetables}}</option>
+      <option value="{{vegetable.vegetable}}">{{vegetable.vegetable}}</option>
             {% endfor %}
     </select>
-    <label>Materialize Multiple Select</label>
+    <label>Select your vegetable(s)</label>
   </div>
 
    <div class="row">
