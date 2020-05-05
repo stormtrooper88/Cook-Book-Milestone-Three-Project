@@ -3,7 +3,7 @@
 <h3>Add your recipe below!</h3>
 
   <div class="row">
-    <form class="col s12">
+    <form action="{{ url_for('addrecipe_add') }}" method="POST" class="col s12">
       <div class="row">
         <div class="input-field col s6">
           <input placeholder="Name your recipe here" id="recipes_Recipe" type="text" class="validate">
@@ -15,7 +15,7 @@
         </div>
       </div>
 
-  <div action="{{ url_for('addrecipe_add') }}" method="POST" class="input-field col s6">
+  <div class="input-field col s6">
     <select multiple>
     {% for base in bases %}
       <option value="{{base.base}}">{{base.base}}</option>
@@ -24,7 +24,7 @@
     <label>Select your base(s)</label>
   </div>
  
-    <div action="{{ url_for('addrecipe_add') }}" method="POST" class="input-field col s6">
+    <div class="input-field col s6">
     <select multiple>
     {% for meat in meats %}
       <option value="{{meat.meat}}">{{meat.meat}}</option>
@@ -33,7 +33,7 @@
     <label>Select your meat</label>
   </div>
 
-    <div action="{{ url_for('addrecipe_add') }}" method="POST" class="input-field col s6">
+    <div class="input-field col s6">
     <select multiple>
     {% for sauce in sauces %}
       <option value="{{sauce.sauce}}">{{sauce.sauce}}</option>
@@ -42,7 +42,7 @@
     <label>Select your sauce(s)</label>
   </div>
 
-    <div action="{{ url_for('addrecipe_add') }}" method="POST" class="input-field col s6">
+    <div class="input-field col s6">
     <select multiple>
     {% for spice in spices %}
       <option value="{{spice.spice}}">{{spice.spice}}</option>
@@ -51,7 +51,7 @@
     <label>Select your spice(s)</label>
   </div>
 
-    <div action="{{ url_for('addrecipe_add') }}" method="POST" class="input-field col s6">
+    <div class="input-field col s6">
     <select multiple>
     {% for vegetable in vegetables %}
       <option value="{{vegetable.vegetable}}">{{vegetable.vegetable}}</option>

@@ -30,8 +30,8 @@ def addrecipe():
 
 @app.route('/addrecipe_add', methods=['POST'])
 def addrecipe_add():
-    recipes = mongo.db.Recipe
-    Recipe.insert_one(request.form.to.dict())
+    recipes = mongo.db.recipes
+    recipes.insert_one(request.form.to.dict())
     return redirect(url_for('recipe'))
 
 
