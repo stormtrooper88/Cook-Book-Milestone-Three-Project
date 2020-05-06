@@ -20,7 +20,7 @@ def recipe():
 def browse():
     return render_template("browse.html", page_title="Browse")
 
-@app.route('/edit_recipe')
+@app.route('/edit_recipe', methods=['POST'])
 def edit_recipe():
     recipe = mongo.db.recipes.find_one({"Recipe": some_search_term})
     recipe = mongo.db.recipes.find_one({"Cuisine": some_search_term})
