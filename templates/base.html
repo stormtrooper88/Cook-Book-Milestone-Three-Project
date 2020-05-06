@@ -50,8 +50,13 @@
     </script>
 
 {% block content %}
-
-
+ {% with messages = get_flashed_messages() %} {% if messages %}
+        <ul class="flashes">
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %} {% endwith %}
 
 <h1>Recipes at home!</h1>
  <img class="materialboxed" width="650" src="static/images/frontimage.jpeg.jpg">

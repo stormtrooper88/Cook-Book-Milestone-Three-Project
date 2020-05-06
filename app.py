@@ -1,9 +1,10 @@
 import os
-from flask import Flask, render_template, redirect, request, url_for
+from flask import Flask, render_template, redirect, request, url_for, flash
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId 
 
 app = Flask(__name__)
+app.secret_key = 'some_secret'
 
 app.config["MONGO_DBNAME"] = 'cook_book'
 app.config["MONGO_URI"] = 'mongodb+srv://root:Rundle18@myfirstcluster-6cjbt.mongodb.net/cook_book?retryWrites=true&w=majority'
@@ -31,7 +32,9 @@ def addrecipe():
 @app.route('/addrecipe_add', methods=['POST'])
 def addrecipe_add():
     recipes = mongo.db.recipes
-    recipes.insert_one(request.form.to.dict())
+    recipes.insert_one(request.form.to_dict())
+    if request.method == "POST":
+         flash("Thank you for adding your recipe! Feel free to browse our recipes in the browser page"),
     return redirect(url_for('recipe'))
 
 

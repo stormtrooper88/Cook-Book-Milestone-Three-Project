@@ -6,17 +6,17 @@
     <form action="{{ url_for('addrecipe_add') }}" method="POST" class="col s12">
       <div class="row">
         <div class="input-field col s6">
-          <input placeholder="Name your recipe here" id="recipes_Recipe" type="text" class="validate">
-          <label for="name_of_recipe">Name of your recipe</label>
+          <input name="Recipe"placeholder="Name your recipe here" id="Recipe" type="text" class="validate" required>
+          <label for="Recipe">Name of your recipe</label>
         </div>
         <div class="input-field col s6">
-          <input id="recipes_Cuisine" type="text" class="validate">
-          <label for="cuisine">What cuisine is your recipe from</label>
+          <input name="Cuisine" id="Cuisine" type="text" class="validate" required>
+          <label for="Cuisine">What cuisine is your recipe from</label>
         </div>
       </div>
 
   <div class="input-field col s6">
-    <select multiple>
+    <select name="base" multiple required>
     {% for base in bases %}
       <option value="{{base.base}}">{{base.base}}</option>
                  {% endfor %}
@@ -25,7 +25,7 @@
   </div>
  
     <div class="input-field col s6">
-    <select multiple>
+    <select name="meat" multiple required>
     {% for meat in meats %}
       <option value="{{meat.meat}}">{{meat.meat}}</option>
       {% endfor %}
@@ -34,7 +34,7 @@
   </div>
 
     <div class="input-field col s6">
-    <select multiple>
+    <select name="sauce" multiple required>
     {% for sauce in sauces %}
       <option value="{{sauce.sauce}}">{{sauce.sauce}}</option>
             {% endfor %}
@@ -43,7 +43,7 @@
   </div>
 
     <div class="input-field col s6">
-    <select multiple>
+    <select name="spice" multiple required>
     {% for spice in spices %}
       <option value="{{spice.spice}}">{{spice.spice}}</option>
             {% endfor %}
@@ -52,7 +52,7 @@
   </div>
 
     <div class="input-field col s6">
-    <select multiple>
+    <select name="vegetable" multiple required>
     {% for vegetable in vegetables %}
       <option value="{{vegetable.vegetable}}">{{vegetable.vegetable}}</option>
             {% endfor %}
@@ -64,13 +64,13 @@
     <form class="col s12">
       <div class="row">
         <div class="input-field col s12">
-          <textarea id="recipes_Instructions" class="materialize-textarea"></textarea>
-          <label for="textarea1">Please leave your instructions here</label>
+          <textarea  name="Instructions" id="recipes_Instructions" class="materialize-textarea" required></textarea>
+          <label for="textarea1" required>Please leave your instructions here</label>
         </div>
       </div>
 
    <div class="row">
-      <button class="btn waves-effect waves-light" type="submit" name="action">Submit your recipe
+      <button class="btn waves-effect waves-light" type="submit">Submit your recipe
     <i class="material-icons right">addrecipe_add</i>
   </button>
    </div>
