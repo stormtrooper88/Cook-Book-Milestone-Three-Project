@@ -1,16 +1,96 @@
-{% extends 'base.html' %}
-{% block content %}
+{% extends 'base.html' %} {% block content %}
 
- <form action="{{ url_for('edit_recipe') }}" method="POST">
-    
-    <div class="form-box">
-    <input name="Recipe" type="text" class="search-field Recipe" placeholder="Recipe">
+<h3>Edit your recipe below!</h3>
 
-    <input name="Cuisine" type="text" class="search-field Cuisine" placeholder="Cuisine">
-    <button class="search-btn" type="button">Search</button>
+  <div class="row">
+    <form action="{{ url_for('addrecipe_add') }}" method="POST" class="col s12">
+      <div class="row">
+        <div class="input-field col s6">
+          <input name="Recipe"placeholder="Name your recipe here" id="Recipe" type="text" class="validate" value="{{recipes.Recipe}}" required>
+          <label for="Recipe">Name of your recipe</label>
+        </div>
+        <div class="input-field col s6">
+          <input name="Cuisine" id="Cuisine" type="text" class="validate" value="{{recipes.Cuisine}}" required>
+          <label for="Cuisine">What cuisine is your recipe from</label>
+        </div>
+      </div>
+
+  <div class="input-field col s6">
+    <select name="base" multiple required>
+    {% for base in bases %}
+{% if base.bases.name == recipes.bases.name %}
+      <option value="{{base.base}}" selected>{{base.base}}</option>
+      {% else %}
+      {% endif %}
+                 {% endfor %}
+    </select>
+    <label>Select your base(s)</label>
+  </div>
+ 
+    <div class="input-field col s6">
+    <select name="meat" multiple required>
+    {% for meat in meats %}
+    {% if meat.meats.name == recipe.meats.name %}
+      <option value="{{meat.meat}}">{{meat.meat}}</option>
+            {% else %}
+      {% endif %}
+      {% endfor %}
+    </select>
+    <label>Select your meat</label>
+  </div>
+
+    <div class="input-field col s6">
+    <select name="sauce" multiple required>
+    {% for sauce in sauces %}
+        {% if sauce.saucess.name == recipe.sauces.name %}
+      <option value="{{sauce.sauce}}">{{sauce.sauce}}</option>
+                {% else %}
+      {% endif %}
+            {% endfor %}
+    </select>
+    <label>Select your sauce(s)</label>
+  </div>
+
+    <div class="input-field col s6">
+    <select name="spice" multiple required>
+    {% for spice in spices %}
+            {% if spice.spices.name == recipe.spices.name %}
+      <option value="{{spice.spice}}">{{spice.spice}}</option>
+                      {% else %}
+      {% endif %}
+            {% endfor %}
+    </select>
+    <label>Select your spice(s)</label>
+  </div>
+
+    <div class="input-field col s6">
+    <select name="vegetable" multiple required>
+    {% for vegetable in vegetables %}
+               {% if vegetable.vegetables.name == recipe.vegetables.name %}
+      <option value="{{vegetable.vegetable}}">{{vegetable.vegetable}}</option>
+                            {% else %}
+      {% endif %}
+            {% endfor %}
+    </select>
+    <label>Select your vegetable(s)</label>
+  </div>
+
+   <div class="row">
+    <form class="col s12">
+      <div class="row">
+        <div class="input-field col s12">
+          <textarea  name="Instructions" id="Instructions" class="materialize-textarea" value="{{recipes.Instructions}}" required></textarea>
+          <label for="textarea1" required>Please leave your instructions here</label>
+        </div>
+      </div>
+
+   <div class="row">
+      <button class="btn waves-effect waves-light" type="submit">Submit your recipe
+    <i class="material-icons right">addrecipe_add</i>
+  </button>
+   </div>
     </form>
-    </div>
-    </div>
 
-</body>
+  </div>
+
 {% endblock %}

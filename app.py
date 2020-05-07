@@ -14,17 +14,16 @@ mongo = PyMongo(app)
 @app.route('/')
 @app.route('/recipe')
 def recipe():
-    return render_template("index.html", page_title="Home Page")
+    return render_template("index.html", page_title="Home Page", recipes=mongo.db.recipes.find())
 
 @app.route('/browse')
 def browse():
     return render_template("browse.html", page_title="Browse")
 
-@app.route('/edit_recipe', methods=['POST'])
-def edit_recipe():
-    recipe = mongo.db.recipes.find_one({"Recipe": some_search_term})
-    recipe = mongo.db.recipes.find_one({"Cuisine": some_search_term})
-    return render_template("index.html", page_title="Results")
+@app.route('/edit_recipe/<recipe_id>')
+def edit_recipe(recipe_id):
+    recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+    return render_template("editrecipe.html", recipes=recipe, page_title="Results")
 
 @app.route('/addrecipe')
 def addrecipe():
