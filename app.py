@@ -25,6 +25,22 @@ def edit_recipe(recipe_id):
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
     return render_template("editrecipe.html", recipes=recipe, page_title="Results")
 
+@app.route('/update_recipe/<recipe_id>', methods=["POST"])
+def update_recipe(recipe_id):
+    recipes = mongo.db.recipes
+    recipes.update( {'_id': ObjectId(recipe_id)},
+    {
+        Recipe = request.form.get('Recipe'),
+        Cuisine = request.form.get('Cuisne'),
+        base = request.form.get('base'),
+        meat = request.form.get('meat'),
+        sauce = request.form.get('sauce'),
+        spice = request.form.get('spice'),
+        vegetable = request.form.get('vegetable'),
+        Instructions = request.form.get('Instructions')
+    })
+
+
 @app.route('/addrecipe')
 def addrecipe():
     bases = mongo.db.bases.find()
