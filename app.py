@@ -16,6 +16,13 @@ mongo = PyMongo(app)
 def recipe():
     return render_template("index.html", page_title="Home Page", recipes=mongo.db.recipes.find())
 
+@app.route('/search')
+def search():
+    query = request.form['recipes']
+    text_results = mongo.db.command('text', 'posts', search=query, limit=SEARCH_LIMIT)
+    doc_matches = (res['obj'] for res in text_results['results'])
+    return render_template("index.html", results=results)
+
 
 @app.route('/edit_recipe/<recipe_id>')
 def edit_recipe(recipe_id):
@@ -57,7 +64,7 @@ def addrecipe_add():
     recipes = mongo.db.recipes
     recipes.insert_one(request.form.to_dict())
     if request.method == "POST":
-         flash("Thank you for adding your recipe! Feel free to browse our recipes in the browser page"),
+         flash("Thank you for adding your recipe!"),
     return redirect(url_for('recipe'))
 
 

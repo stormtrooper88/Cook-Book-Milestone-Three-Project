@@ -1,6 +1,6 @@
 {% extends 'base.html' %} {% block content %}
 
-<h4>Add your recipe below!</h4>
+<h4>Add your recipe below or edit one you have already submitted</h4>
 
   <div class="row">
     <form action="{{ url_for('addrecipe_add') }}" method="POST" class="col s12">
@@ -72,8 +72,8 @@
    <div class="row">
       <button class="btn waves-effect waves-light" type="submit">Submit your recipe
     <i class="material-icons right">addrecipe_add</i>
-              <button class="btn waves-effect waves-light" type="submit">Edit your recipe
-    <i class="material-icons right"></i>
+        <button class="btn waves-effect waves-light" type="submit">Edit your recipe
+    <i class="material-icons right">edit_recipe</i>
   </button>
    </div>
     </form>
