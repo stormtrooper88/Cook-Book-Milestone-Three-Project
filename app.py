@@ -16,9 +16,6 @@ mongo = PyMongo(app)
 def recipe():
     return render_template("index.html", page_title="Home Page", recipes=mongo.db.recipes.find())
 
-@app.route('/browse')
-def browse():
-    return render_template("browse.html", page_title="Browse")
 
 @app.route('/edit_recipe/<recipe_id>')
 def edit_recipe(recipe_id):
