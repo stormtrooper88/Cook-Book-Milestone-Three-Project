@@ -36,6 +36,8 @@ The Front-End display and functionality use CSS, HTML, and JavaScript. On the Ba
 
 I worked on my wireframes before starting to create the website. I made several wireframes using Balsamiq focusing on the home page, the browser page and the add, edit and delete page. I also create the same page but changed them, so it suited the device the user was using These files. 
 
+https://github.com/stormtrooper88/Cook-Book-Milestone-Three-Project/blob/master/wireframes/Cooking%20recipes%20websiteupdated.pdf
+
 <h2>Features</h2>
 
 <h3>Existing Features</h3>
@@ -43,6 +45,7 @@ I worked on my wireframes before starting to create the website. I made several 
 Add a recipe
 
 Here the user can add a recipe with the following fields required before they can submit. These are: recipe, cuisine, recipe description, base, meat, sauce, spice, vegetable and instructions. The base, meat, sauce, spice, vegetable can be multiple selections rather than one simple choice. I have added a require to each field so that the user cannot submit the recipe without filling out all the fields. Once the user has submitted their recipe, the recipe will be loaded onto a MongoDB database of collections and stored there. The user will then be sent back to the homepage where they will get a responsive message thanking them for adding a recipe. 
+
 Edit a recipe
 
 Here the user can edit their recipe by changing any of the fields named in add a recipe. They can then submit the changes they have made. These changes will then be saved in the database on MongoDB. 
@@ -51,7 +54,7 @@ Delete a recipe
 
 Here the user can delete the recipe they have created.
 
-Features Left to Implement
+<h3>Features Left to Implement</h3>
 
 •	A feature I would have liked to have added is a search bar. I did include one, but I did not have the time to get running with the database in MongoDB. 
 
@@ -73,7 +76,7 @@ Features Left to Implement
 
 •	MongoDB
 
-Testing
+<h3>Testing</h3>
 
 1.	Adding a recipe: 
 
@@ -81,7 +84,7 @@ i.	I went to the "Add a recipe" button which will load up and the addrecipe html
 
 ii.	I tried to submit the empty form which verified that an error message about the required fields appears.
 
-iii.	I tried to submit without completing each section of the form to verify that an error appears on the fields missed out. 
+iii. I tried to submit without completing each section of the form to verify that an error appears on the fields missed out. 
 
 iv.	I tried to submit the form with all inputs valid and verify that a success message appears which it does whilst sending the user back to the homepage with a “thank you for adding your recipe!” message and their recipe with a short description. 
 
@@ -124,19 +127,21 @@ There are no differences between the development and deployed version. This was 
 
 To clone the code used in this project you can do as following: 
 
-to run the code locally then you can clone my git repository and run it an editor such as Visual Studio Code. Simply past git clone https://github.com/stormtrooper88/Cook-Book-Milestone-Three-Project into your terminal. Once you have done this you will want to stop the connection with the GitHub repository. You do this by typing into your terminal git remote rm origin. Alternatively, you can press the “clone or download” button on the link above that will allow you to clone the work. 
+to run the code locally then you can clone my git repository and run it an editor such as Visual Studio Code. 
 
-Credits
+Simply past git clone https://github.com/stormtrooper88/Cook-Book-Milestone-Three-Project into your terminal. Once you have done this you will want to stop the connection with the GitHub repository. You do this by typing into your terminal git remote rm origin. Alternatively, you can press the “clone or download” button on the link above that will allow you to clone the work. 
 
-Content
+<h3>Credits</h3>
+
+<h4>Content</h4>
 
 •	All content is of my own work through the videos provided by Code Institute’s  task manager mini project and Thorin & Co project. 
 
-Media
+<h3>Media</h3>
 
 •	No photos or videos were used within this project.
 
-Acknowledgements
+<h3>Acknowledgements</h3>
 
 •	I would like to acknowledge the tutor that now extends to my time zone and their patience with my questions. 
 
