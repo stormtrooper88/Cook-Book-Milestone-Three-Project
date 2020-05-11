@@ -18,7 +18,7 @@
   <div class="input-field col s6">
     <select name="base" multiple required>
     {% for base in bases %}
-{% if base.bases.name == recipes.bases.name %}
+{% if base.base == recipes.base %}
       <option value="{{base.base}}" selected>{{base.base}}</option>
       {% else %}
       {% endif %}
@@ -30,7 +30,7 @@
     <div class="input-field col s6">
     <select name="meat" multiple required>
     {% for meat in meats %}
-    {% if meat.meats.name == recipe.meats.name %}
+    {% if meat.meat == recipe.meat %}
       <option value="{{meat.meat}}">{{meat.meat}}</option>
             {% else %}
       {% endif %}
@@ -42,7 +42,7 @@
     <div class="input-field col s6">
     <select name="sauce" multiple required>
     {% for sauce in sauces %}
-        {% if sauce.saucess.name == recipe.sauces.name %}
+        {% if sauce.sauce == recipe.sauce %}
       <option value="{{sauce.sauce}}">{{sauce.sauce}}</option>
                 {% else %}
       {% endif %}
@@ -54,7 +54,7 @@
     <div class="input-field col s6">
     <select name="spice" multiple required>
     {% for spice in spices %}
-            {% if spice.spices.name == recipe.spices.name %}
+            {% if spice.spice == recipe.spice %}
       <option value="{{spice.spice}}">{{spice.spice}}</option>
                       {% else %}
       {% endif %}
@@ -66,7 +66,7 @@
     <div class="input-field col s6">
     <select name="vegetable" multiple required>
     {% for vegetable in vegetables %}
-               {% if vegetable.vegetables.name == recipe.vegetables.name %}
+               {% if vegetable.vegetable == recipe.vegetable %}
       <option value="{{vegetable.vegetable}}">{{vegetable.vegetable}}</option>
                             {% else %}
       {% endif %}
