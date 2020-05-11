@@ -1,17 +1,17 @@
-Cookbook-Milestone-three-project
+<h1>Cookbook-Milestone-three-project</h1>
 
 
 This project aims to show my work using the skills learnt in the data fundamentals module along with past modules that I have completed. I have created a cookbook in which users can add, edit and delete their recipes.
 The aim is for the user to submit their recipes so that they can later visit their recipe. When they do this, they can edit the recipe or delete it. The recipes will be shown on the homepage so that others are able to see what has already been submitted and those users can eventually replicate these recipes and add their own or edit those already on there. 
 
-Why this Project?
+<h3>Why this Project?</h3>
 
 I have created this project for the Data Centric Development Milestone Project of Code Institute’s Full Stack Software Development course. The project was to create an online cookbook. This would need to include both front and back end code to allow users to add, edit and delete new recipes. It would also need to include a functionality for users to locate recipes using a short description. 
 The Front-End display and functionality use CSS, HTML, and JavaScript. On the Back-End functionality I have used Flask, MongoDB and Python. 
 
-UX
+<h2>UX</h2>
 
-User Stories
+<h3>User Stories</h3>
 
 •	As the user, I wish to go to the home page and see the different options available to me.
 
@@ -32,13 +32,13 @@ User Stories
 •	As a user, I want to be able to a delete a recipe on the website by pressing the delete button. 
 
 
-Wireframes
+<h3>Wireframes</h3>
 
 I worked on my wireframes before starting to create the website. I made several wireframes using Balsamiq focusing on the home page, the browser page and the add, edit and delete page. I also create the same page but changed them, so it suited the device the user was using These files. 
 
-Features
+<h2>Features</h2>
 
-Existing Features
+<h3>Existing Features</h3>
 
 Add a recipe
 
@@ -57,7 +57,7 @@ Features Left to Implement
 
 •	A feature I would have liked to include is to add pages as the recipes grow over time, so they do not cluster. 
 
-Technologies Used
+<h3>Technologies Used</h3>
 
 •	CSS
 
@@ -100,15 +100,15 @@ i.	On the homepage there is a red button called “DELETE”.
 ii.	Once I clicked on this, the page refreshed, and the recipe was removed. 
 
 
-Database Schema
+<h3>Database Schema</h3>
 
 The database in MongoDB is structured with several collections: bases, meats, recipes, sauces, spices and vegetables. Within each collection of bases, meats, sauces, spices and vegetables, the user can pick different options which allow them to be precise and choose several different options. 
 The recipe that the user creates will be stored in recipes with all the other collections being found there along with a description and instructions. The recipe is then shown on the homepage as a description with an option to either edit or delete it. 
 
 
-Deployment
+<h3>Deployment</h3>
 
-Heroku
+<h4>Heroku</h4>
 
 For the deployment of Heroku I used the config vars:
 
@@ -120,7 +120,7 @@ https://tcb-cookbook-milestone-project.herokuapp.com/
 
 There are no differences between the development and deployed version. This was run using Python3. 
 
-Github
+<h4>Github</h4>
 
 To clone the code used in this project you can do as following: 
 
