@@ -27,7 +27,12 @@ def search():
 @app.route('/edit_recipe/<recipe_id>')
 def edit_recipe(recipe_id):
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
-    return render_template("editrecipe.html", recipes=recipe, page_title="Results")
+    bases = mongo.db.bases.find()
+    meats = mongo.db.meats.find()
+    sauces = mongo.db.sauces.find()
+    spices = mongo.db.spices.find()
+    vegetables = mongo.db.vegetables.find()
+    return render_template("editrecipe.html", recipes=recipe, bases=mongo.db.bases.find(), meats=mongo.db.meats.find(), sauces=mongo.db.sauces.find(), spices=mongo.db.spices.find(), vegetables=mongo.db.vegetables.find(), page_title="Results")
 
 @app.route('/update_recipe/<recipe_id>', methods=["POST"])
 def update_recipe(recipe_id):
@@ -36,6 +41,7 @@ def update_recipe(recipe_id):
     {
         'Recipe':request.form.get('Recipe'),
         'Cuisine':request.form.get('Cuisne'),
+        'Description':request.form.get('Description'),
         'base':request.form.get('base'),
         'meat':request.form.get('meat'),
         'sauce':request.form.get('sauce'),

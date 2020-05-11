@@ -3,15 +3,19 @@
 <h3>Edit your recipe below!</h3>
 
   <div class="row">
-    <form action="{{ url_for('addrecipe_add') }}" method="POST" class="col s12">
+    <form action="{{ url_for('update_recipe', recipe_id=recipes._id) }}" method="POST" class="col s12">
       <div class="row">
         <div class="input-field col s6">
-          <input name="Recipe"placeholder="Name your recipe here" id="Recipe" type="text" class="validate" value="{{recipes.Recipe}}" required>
-          <label for="Recipe">Name of your recipe</label>
+          <input name="recipes"placeholder="Name your recipe here" id="recipes" type="text" class="validate" value="{{recipes.Recipe}}" required>
+          <label for="recipes">Name of your recipe</label>
         </div>
         <div class="input-field col s6">
           <input name="Cuisine" id="Cuisine" type="text" class="validate" value="{{recipes.Cuisine}}" required>
           <label for="Cuisine">What cuisine is your recipe from</label>
+        </div>
+                <div class="input-field col s6">
+          <input name="Description" id="Description" type="text" class="validate"  value="{{recipes.Description}}" required>
+          <label for="Description">Describe your recipe</label>
         </div>
       </div>
 
@@ -19,8 +23,9 @@
     <select name="base" multiple required>
     {% for base in bases %}
 {% if base.base == recipes.base %}
-      <option value="{{base.base}}" selected>{{base.base}}</option>
+     <option value="{{base.base}}" selected>{{base.base}}</option>
       {% else %}
+       <option value="{{base.base}}">{{base.base}}</option>
       {% endif %}
                  {% endfor %}
     </select>
@@ -30,9 +35,10 @@
     <div class="input-field col s6">
     <select name="meat" multiple required>
     {% for meat in meats %}
-    {% if meat.meat == recipe.meat %}
-      <option value="{{meat.meat}}">{{meat.meat}}</option>
+    {% if meat.meat == recipes.meat %}
+             <option value="{{meat.meat}}" selected>{{meat.meat}}</option>
             {% else %}
+             <option value="{{meat.meat}}">{{meat.meat}}</option>
       {% endif %}
       {% endfor %}
     </select>
@@ -42,9 +48,10 @@
     <div class="input-field col s6">
     <select name="sauce" multiple required>
     {% for sauce in sauces %}
-        {% if sauce.sauce == recipe.sauce %}
-      <option value="{{sauce.sauce}}">{{sauce.sauce}}</option>
+        {% if sauce.sauce == recipes.sauce %}
+      <option value="{{sauce.sauce}}" selected>{{sauce.sauce}}</option>
                 {% else %}
+                 <option value="{{sauce.sauce}}">{{sauce.sauce}}</option>
       {% endif %}
             {% endfor %}
     </select>
@@ -54,9 +61,10 @@
     <div class="input-field col s6">
     <select name="spice" multiple required>
     {% for spice in spices %}
-            {% if spice.spice == recipe.spice %}
-      <option value="{{spice.spice}}">{{spice.spice}}</option>
+            {% if spice.spice == recipes.spice %}
+      <option value="{{spice.spice}}" selected>{{spice.spice}}</option>
                       {% else %}
+                          <option value="{{spice.spice}}">{{spice.spice}}</option>
       {% endif %}
             {% endfor %}
     </select>
@@ -66,9 +74,10 @@
     <div class="input-field col s6">
     <select name="vegetable" multiple required>
     {% for vegetable in vegetables %}
-               {% if vegetable.vegetable == recipe.vegetable %}
-      <option value="{{vegetable.vegetable}}">{{vegetable.vegetable}}</option>
+               {% if vegetable.vegetable == recipes.vegetable %}
+       <option value="{{vegetable.vegetable}}" selected>{{vegetable.vegetable}}</option>
                             {% else %}
+                                <option value="{{vegetable.vegetable}}">{{vegetable.vegetable}}</option>
       {% endif %}
             {% endfor %}
     </select>
@@ -79,7 +88,7 @@
     <form class="col s12">
       <div class="row">
         <div class="input-field col s12">
-          <textarea  name="Instructions" id="Instructions" class="materialize-textarea" value="{{recipes.Instructions}}" required></textarea>
+<textarea  name="Instructions" id="Instructions" class="materialize-textarea" required>{{recipes.Instructions}}</textarea>
           <label for="textarea1" required>Please leave your instructions here</label>
         </div>
       </div>
