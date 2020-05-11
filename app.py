@@ -2,12 +2,14 @@ import os
 from flask import Flask, render_template, redirect, request, url_for, flash
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId 
+if os.path.exists("env.py"):
+    import env
 
 app = Flask(__name__)
-app.secret_key = 'some_secret'
+app.secret_key = os.environ.get("SECRET_PASS")
 
 app.config["MONGO_DBNAME"] = 'cook_book'
-app.config["MONGO_URI"] = 'mongodb+srv://root:Rundle18@myfirstcluster-6cjbt.mongodb.net/cook_book?retryWrites=true&w=majority'
+app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 
 mongo = PyMongo(app)
 
@@ -16,12 +18,12 @@ mongo = PyMongo(app)
 def recipe():
     return render_template("index.html", page_title="Home Page", recipes=mongo.db.recipes.find())
 
+
 @app.route('/search')
 def search():
-    query = request.form['recipes']
-    text_results = mongo.db.command('text', 'posts', search=query, limit=SEARCH_LIMIT)
-    doc_matches = (res['obj'] for res in text_results['results'])
-    return render_template("index.html", results=results)
+    query = request.args.get["results"]
+    results = mongo.db.recipes.find({"recipes" : {"$regex": query}})
+    return render_template("index.html", recipes=results)
 
 
 @app.route('/edit_recipe/<recipe_id>')
